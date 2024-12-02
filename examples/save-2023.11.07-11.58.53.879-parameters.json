@@ -1,0 +1,7 @@
+{
+    "blur_level": 13,
+    "bw_threshold": 68,
+    "ecc_threshold": 0.85,
+    "lo_area_threshold": 60,
+    "hi_area_threshold": 190
+}

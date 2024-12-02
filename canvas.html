@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+    #canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }     
+</style>
+</head>
+<body>
+<div id="image-container" style="position: relative;">
+    <img id="image" src="assets/1.jpeg" style="max-width: 100%; height: auto;"/>
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+    window.onload = function() {
+      const img = document.getElementById('image');
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+    
+      // Asegura que el canvas tenga el mismo tamaño que la imagen
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.style.width = img.width + 'px';
+      canvas.style.height = img.height + 'px';
+    
+      canvas.addEventListener('click', function(event) {
+        // Calcula la posición del click relativa al canvas
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+    
+        // Dibuja un círculo en la posición del click
+        ctx.fillStyle = 'green'; // Color del círculo
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI); // Dibuja un círculo (x, y, radio, inicio, fin)
+        ctx.fill();
+      });
+    };
+</script>
+</body>
+</html>
